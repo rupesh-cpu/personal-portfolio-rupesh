@@ -15,6 +15,60 @@ body { font-family:'Open Sans',sans-serif; background:#fafafa; color:#333; }
 .social-icons a { color:#fff; margin:0 10px; font-size:20px; transition:transform 0.3s,color 0.3s; }
 .social-icons a:hover { color:#f9c74f; transform:scale(1.2); }
 
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1f1c2c;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+}
+.logo span {
+  color: #f9c74f;
+}
+.nav-links {
+  list-style: none;
+}
+.nav-links li {
+  display: inline;
+  margin: 0 15px;
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.nav-links a:hover {
+  color: #f9c74f;
+}
+.social-icons a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 20px;
+  transition: transform 0.3s, color 0.3s;
+}
+.social-icons a:hover {
+  color: #f9c74f;
+  transform: scale(1.2);
+}
+
+.nav-links a.active {
+  color: #f9c74f;         /* Highlight color */
+  font-weight: 700;       /* Bold text */
+  border-bottom: 2px solid #f9c74f; /* Underline effect */
+}
+
+
 /* Hero */
 .hero {
   display:flex; justify-content:center; align-items:center;
