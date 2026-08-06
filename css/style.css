@@ -2,11 +2,6 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:'Open Sans',sans-serif; background:#fafafa; color:#333; }
 
-/* Navbar */
-.navbar {
-  display:flex; justify-content:space-between; align-items:center;
-  background:#1f1c2c; padding:15px 30px; position:sticky; top:0; z-index:1000;
-}
 .logo { font-family:'Poppins',sans-serif; font-size:22px; font-weight:600; color:#fff; }
 .logo span { color:#f9c74f; }
 .nav-links li { display:inline; margin:0 15px; }
@@ -20,12 +15,14 @@ body { font-family:'Open Sans',sans-serif; background:#fafafa; color:#333; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #1f1c2c;
+  background: rgba(31, 28, 44, 100); /* semi-transparent */
   padding: 15px 30px;
   position: sticky;
   top: 0;
   z-index: 1000;
+  /*backdrop-filter: blur(6px); /* optional frosted glass effect */
 }
+
 .logo {
   font-family: 'Poppins', sans-serif;
   font-size: 22px;
@@ -110,6 +107,41 @@ footer { background:#1f1c2c; color:#fff; text-align:center; padding:20px; }
 footer .social-icons a { color:#fff; margin:0 10px; font-size:20px; }
 footer .social-icons a:hover { color:#f9c74f; }
 
+.footer {
+  background: #1f1c2c;
+  color: #fff;
+  text-align: center;
+  padding: 20px 10px;
+  margin-top: 40px;
+}
+.footer-content p {
+  margin: 0;
+  font-size: 14px;
+}
+.footer-links {
+  margin: 10px 0;
+}
+.footer-links a {
+  color: #f9c74f;
+  text-decoration: none;
+  margin: 0 8px;
+  font-size: 14px;
+}
+.footer-links a:hover {
+  text-decoration: underline;
+}
+.footer .social-icons a {
+  color: #fff;
+  margin: 0 8px;
+  font-size: 18px;
+  transition: transform 0.3s, color 0.3s;
+}
+.footer .social-icons a:hover {
+  color: #f9c74f;
+  transform: scale(1.2);
+}
+
+
 /* Animations */
 @keyframes zoomIn { from{transform:scale(0.8);opacity:0;} to{transform:scale(1);opacity:1;} }
 
@@ -131,7 +163,7 @@ footer .social-icons a:hover { color:#f9c74f; }
 }
 
 .background-animation span:nth-child(1) {
-  top: 15%; left: 25%;
+  top: 10%; left: 25%;
   animation-delay: 0s;
 }
 .background-animation span:nth-child(2) {

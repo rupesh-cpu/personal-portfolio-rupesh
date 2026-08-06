@@ -18,6 +18,22 @@
   text-decoration: underline;
 }
 
+/* College Logo */
+.college-logo {
+  display: block;
+  margin: 0 auto 20px auto;
+  width: 120px;       /* adjust size */
+  height: auto;
+  border-radius: 8px; /* smooth corners */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  animation: fadeInZoom 1.5s ease;
+}
+
+@keyframes fadeInZoom {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
 /* Chart Section */
 .chart-section {
   max-width: 600px;
@@ -86,3 +102,4 @@
   50% { transform: translateY(-50px) rotate(180deg); }
   100% { transform: translateY(0) rotate(360deg); }
 }
+
