@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | Rupesh Patare</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/contact.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">Rupesh<span>Portfolio</span></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <h1>Get in Touch</h1>
+    <p>If you’d like to connect, feel free to reach out through any of the channels below.</p>
+
+    <div class="contact-info">
+      <p><strong>Email:</strong> <a href="mailto:rupeshpatareg09@gmail.com">rupeshpatareg09@gmail.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:9209135823">+91 9209135823</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/rupeshpatare" target="_blank">linkedin.com/in/rupeshpatare</a></p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/rupesh-cpu" target="_blank">github.com/rupesh-cpu</a></p>
+    </div>
+
+    <!-- Contact Form -->
+    <form class="contact-form" onsubmit="sendMail(event)">
+        <input type="text" name="user_name" placeholder="Your Name" required>
+        <input type="email" name="user_email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+
+
+
+
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
+    <script>
+    (function(){
+        emailjs.init("T7wCQ7dDdA1XAoS2_"); // from EmailJS dashboard
+    })();
+
+    function sendMail(event) {
+        event.preventDefault();
+        emailjs.sendForm("service_cngcuof", "YOUR_TEMPLATE_ID", event.target)
+        .then(() => alert("Message sent successfully!"))
+        .catch(err => alert("Error: " + JSON.stringify(err)));
+    }
+    </script>
+  </section>  
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2026 Rupesh Ramnath Patare — All Rights Reserved</p>
+    </div>
+  </footer>
+</body>
+</html>
