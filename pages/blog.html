@@ -4,10 +4,12 @@
   <meta charset="UTF-8">
   <title>Blog | Rupesh Patare</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS -->
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/blog.css">
 </head>
 <body>
+  <!-- Navbar -->
   <header class="navbar">
     <div class="logo">Rupesh<span>Portfolio</span></div>
     <nav>
@@ -21,34 +23,62 @@
     </nav>
   </header>
 
+  <!-- Blog Section -->
   <section class="blog-section">
     <h1>My Blog</h1>
     <div id="blog-container"></div>
   </section>
 
-  <footer class="footer">
-    <div class="footer-content">
-      <p>© 2026 Rupesh Ramnath Patare — All Rights Reserved</p>
+    <!-- Footer -->
+<footer class="footer">
+  <div class="footer-content">
+    <p>© 2026 Rupesh Ramnath Patare — All Rights Reserved</p>
+    <div class="footer-links">
+      <a href="../index.html">Home</a> |
+      <a href="academics.html">Academics</a> |
+      <a href="skills.html">Skills</a> |
+      <a href="blog.html">Blog</a> |
+      <a href="contact.html">Contact</a>
     </div>
-  </footer>
+    <div class="social-icons">
+      <a href="https://github.com/rupesh-cpu" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/rupeshpatare" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://youtube.com/@yourchannel" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
 
+
+  <!-- Script -->
   <script>
     // Fetch posts from backend
     fetch('/api/posts')
       .then(res => res.json())
       .then(posts => {
         const container = document.getElementById('blog-container');
+        
+        if (!posts || posts.length === 0) {
+          container.innerHTML = "<p>No blog posts yet. Check back soon!</p>";
+          return;
+        }
+
         posts.forEach(post => {
           const div = document.createElement('div');
           div.className = 'blog-post';
           div.innerHTML = `
-            <img src="${post.image}" alt="Blog Image">
+            ${post.image ? `<img src="${post.image}" alt="Blog Image">` : ''}
             <h2>${post.title}</h2>
             <p class="date">${post.date}</p>
             <p>${post.content}</p>
           `;
           container.appendChild(div);
         });
+      })
+      .catch(err => {
+        console.error("Error fetching posts:", err);
+        document.getElementById('blog-container').innerHTML = "<p>Failed to load posts.</p>";
       });
   </script>
 </body>
