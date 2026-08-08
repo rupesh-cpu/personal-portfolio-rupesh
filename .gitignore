@@ -1,0 +1,45 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables (keep secrets safe)
+.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+*.out
+*.err
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Build / dist outputs
+dist/
+build/
+
+# Uploaded files (optional: if you don’t want to push images)
+uploads/
+
+# Cache
+.cache/
+.tmp/
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
