@@ -182,3 +182,85 @@ footer .social-icons a:hover { color:#f9c74f; }
 }
 
 
+/* Desktop Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+.hamburger {
+  display: none; /* hidden on desktop */
+}
+
+/* Mobile Navbar */
+/* Mobile Navbar */
+@media (max-width: 768px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background: rgba(31, 28, 44, 100);  /* keep your header background color */
+    color: #fff;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 28px;
+    cursor: pointer;
+    color: #fff; /* hamburger matches header color */
+  }
+
+  .nav-links {
+    display: none; /* hidden until toggled */
+    flex-direction: column;
+    background: rgba(31, 28, 44, 100); /* same as header background */
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 220px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    padding: 10px;
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    display: flex; /* show when toggled */
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .nav-links a {
+    color: #fff; /* white text on blue background */
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    background: #ecce73; /* darker blue on hover */
+  }
+
+  /* Active page link */
+  .nav-links a.active {
+    background: #ffc107; /* yellow highlight */
+    color: #000;         /* black text for contrast */
+    font-weight: 600;
+  }
+}
+/*remove yt icon on mobile*/
+@media (max-width: 768px) {
+  .social-icons a[href*="youtube"] {
+    display: none;
+  }
+}

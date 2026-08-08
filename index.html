@@ -24,22 +24,22 @@
   <!-- Navbar -->
   <header class="navbar">
     <div class="logo">Rupesh<span>Portfolio</span></div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="pages/academics.html">Academics</a></li>
-        <li><a href="pages/skills.html">Skills</a></li>
-        <li><a href="pages/blog.html">Blog</a></li>
-        <li><a href="hobbies-achievements.html">Highlights</a></li>
-        <li><a href="pages/contact.html">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="pages/academics.html">Academics</a></li>
+      <li><a href="pages/skills.html">Skills</a></li>
+      <li><a href="hobbies-achievements.html">Highlights</a></li>
+      <li><a href="pages/blog.html">Blog</a></li>
+      <li><a href="pages/contact.html">Contact</a></li>
+    </ul>
     <div class="social-icons">
       <a href="https://github.com/rupesh-cpu" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/rupeshpatare" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://linkedin.com/in/rupeshpatare" target="_blank"><i class="fab fa-linkedin"></i></a>
       <a href="https://youtube.com/@yourchannel" target="_blank"><i class="fab fa-youtube"></i></a>
     </div>
   </header>
+
 
   <!-- Hero Section -->
   <section class="hero">
@@ -105,5 +105,11 @@
     }
     loadPosts();
   </script>
+  <script>
+  function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+  }
+</script>
+
 </body>
 </html>

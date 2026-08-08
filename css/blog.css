@@ -64,3 +64,19 @@
     padding: 15px;
   }
 }
+
+.blog-title {
+  font-size: 2.5rem;
+  color: #ffd700;
+  position: relative;
+}
+.blog-title::after {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 4px;
+  background: #ffd700;
+  bottom: -8px;
+  left: 0;
+}
+
