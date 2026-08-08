@@ -66,15 +66,33 @@ app.delete('/api/delete-post/:index', (req, res) => {
   if (req.headers['x-admin-key'] !== process.env.SECRET_KEY) {
     return res.status(403).send('Unauthorized');
   }
+
   const index = parseInt(req.params.index);
   if (index >= 0 && index < posts.length) {
+    const post = posts[index];
+
+    // Delete image file if it exists
+    if (post.image) {
+      const filePath = path.join(__dirname, post.image);
+      fs.unlink(filePath, (err) => {
+        if (err) {
+          console.error("Failed to delete image:", err);
+        } else {
+          console.log("Image deleted:", filePath);
+        }
+      });
+    }
+
+    // Remove post from array
     posts.splice(index, 1);
     fs.writeFileSync('posts.json', JSON.stringify(posts, null, 2));
+
     res.send('Post deleted successfully!');
   } else {
     res.status(404).send('Post not found');
   }
 });
+
 
 // Edit post
 app.put('/api/edit-post/:index', upload.single('image'), (req, res) => {

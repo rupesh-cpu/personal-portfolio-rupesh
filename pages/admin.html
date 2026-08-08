@@ -123,14 +123,20 @@
     }
 
     async function deletePost(index) {
+      // Show confirmation popup
+      const confirmDelete = confirm("Do you really want to delete this blog post?");
+      if (!confirmDelete) return; // Stop if user clicks Cancel
+
       const res = await fetch(`/api/delete-post/${index}`, {
         method: 'DELETE',
         headers: { "x-admin-key": token }
-      });
+    });
+
       const msg = await res.text();
       alert(msg);
       if (res.ok) loadAdminPosts();
-    }
+}
+
 
     async function editPost(index) {
       const newTitle = prompt("Enter new title:");
