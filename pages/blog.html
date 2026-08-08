@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+  <meta charset="UTF-8">
+  <title>Blog | Rupesh Patare</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/blog.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Rupesh<span>Portfolio</span></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="blog-section">
+    <h1>My Blog</h1>
+    <div id="blog-container"></div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2026 Rupesh Ramnath Patare — All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script>
+    // Fetch posts from backend
+    fetch('/api/posts')
+      .then(res => res.json())
+      .then(posts => {
+        const container = document.getElementById('blog-container');
+        posts.forEach(post => {
+          const div = document.createElement('div');
+          div.className = 'blog-post';
+          div.innerHTML = `
+            <img src="${post.image}" alt="Blog Image">
+            <h2>${post.title}</h2>
+            <p class="date">${post.date}</p>
+            <p>${post.content}</p>
+          `;
+          container.appendChild(div);
+        });
+      });
+  </script>
+</body>
+</html>

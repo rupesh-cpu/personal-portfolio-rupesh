@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Header -->
+<header class="navbar">
+  <div class="logo">Rupesh<span>Admin</span></div>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="blog.html">View Blog</a></li>
+      <li><a href="admin.html" class="active">Admin Panel</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Admin | Blog Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+  <section class="admin-section">
+    <h1>Admin Panel</h1>
+
+    <!-- Login Form -->
+    <div id="loginForm">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button onclick="login()">Login</button>
+    </div>
+
+    <!-- Blog Form (hidden until login) -->
+    <div id="blogFormContainer" style="display:none;">
+      <h2>Add New Blog</h2>
+      <form id="blogForm" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="Blog Title" required>
+        <textarea name="content" placeholder="Blog Content" required></textarea>
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Publish Blog</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    // Simple login (replace with backend authentication)
+    function login() {
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+
+      // Replace with your own credentials
+      if (user === "rupesh" && pass === "yourpassword") {
+        document.getElementById('loginForm').style.display = "none";
+        document.getElementById('blogFormContainer').style.display = "block";
+      } else {
+        alert("Invalid credentials!");
+      }
+    }
+
+    // Handle blog form submission
+    document.getElementById('blogForm')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+
+      const res = await fetch('/api/add-post', {
+        method: 'POST',
+        headers: { "x-admin-key": "YOUR_SECRET_KEY" }, // secure key check
+        body: formData
+      });
+
+      const msg = await res.text();
+      alert(msg);
+    });
+  </script>
+</body>
+</html>

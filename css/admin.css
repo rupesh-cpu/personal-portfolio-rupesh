@@ -1,0 +1,66 @@
+/* Admin Section */
+.admin-section {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  backdrop-filter: blur(10px);
+}
+
+.admin-section h1 {
+  text-align: center;
+  color: #f9c74f;
+  margin-bottom: 20px;
+}
+
+/* Form Styling */
+#blogForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#blogForm input,
+#blogForm textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+}
+
+#blogForm input:focus,
+#blogForm textarea:focus {
+  border-color: #f9c74f;
+  outline: none;
+}
+
+#blogForm button {
+  background: #f9c74f;
+  color: #1f1c2c;
+  padding: 12px;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#blogForm button:hover {
+  background: #ff9800;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-section {
+    padding: 20px;
+  }
+  #blogForm input,
+  #blogForm textarea {
+    font-size: 14px;
+  }
+}
