@@ -193,15 +193,12 @@ footer .social-icons a:hover { color:#f9c74f; }
   display: flex;
   gap: 20px;
 }
-.hamburger {
-  display: none; /* hidden on desktop */
-}
 
-/* Mobile Navbar */
 /* Mobile Navbar */
 @media (max-width: 768px) {
   .navbar {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 12px 20px;
@@ -209,37 +206,24 @@ footer .social-icons a:hover { color:#f9c74f; }
     color: #fff;
   }
 
-  .hamburger {
-    display: block;
-    font-size: 28px;
-    cursor: pointer;
-    color: #fff; /* hamburger matches header color */
-  }
-
   .nav-links {
-    display: none; /* hidden until toggled */
-    flex-direction: column;
-    background: rgba(31, 28, 44, 100); /* same as header background */
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    width: 220px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    padding: 10px;
-    z-index: 1000;
-  }
-
-  .nav-links.active {
-    display: flex; /* show when toggled */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 100%;
+    margin-top: 12px;
+    background: transparent;
+    position: static;
+    padding: 0;
+    box-shadow: none;
   }
 
   .nav-links li {
-    margin: 10px 0;
+    margin: 6px 0;
   }
 
   .nav-links a {
-    color: #fff; /* white text on blue background */
+    color: #fff;
     text-decoration: none;
     font-weight: 500;
     padding: 8px;
@@ -248,13 +232,14 @@ footer .social-icons a:hover { color:#f9c74f; }
   }
 
   .nav-links a:hover {
-    background: #ecce73; /* darker blue on hover */
+    color: #f9c74f;
+    background: rgba(255, 255, 255, 0.08);
   }
 
   /* Active page link */
   .nav-links a.active {
-    background: #ffc107; /* yellow highlight */
-    color: #000;         /* black text for contrast */
+    background: rgba(249, 199, 79, 0.15);
+    color: #f9c74f;
     font-weight: 600;
   }
 }
