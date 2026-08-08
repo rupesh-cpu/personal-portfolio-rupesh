@@ -7,20 +7,25 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/contact.css">
 </head>
+
 <body>
-  <!-- Header -->
+  <!-- Navbar -->
   <header class="navbar">
     <div class="logo">Rupesh<span>Portfolio</span></div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="academics.html">Academics</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="highlights.html">Highlights</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="academics.html">Academics</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="highlights.html">Highlights</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html"class="active">Contact</a></li>
+    </ul>
+    <div class="social-icons">
+      <a href="https://github.com/rupesh-cpu" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/rupeshpatare" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <!-- YouTube removed -->
+    </div>
   </header>
 
   <!-- Contact Section -->
@@ -102,4 +107,13 @@
           "<p class='error'>❌ Error sending message. Please try again later.</p>";
       });
   });
-</script>
+  </script>
+
+  <!for mobile menu toggle>
+    <script>
+      function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("active");
+      }
+    </script>
+</body>
+</html>

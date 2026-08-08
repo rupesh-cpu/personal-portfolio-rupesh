@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <title>Blog | Rupesh Patare</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <!-- CSS -->
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/blog.css">
@@ -12,17 +15,22 @@
   <!-- Navbar -->
   <header class="navbar">
     <div class="logo">Rupesh<span>Portfolio</span></div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="academics.html">Academics</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="highlights.html">Highlights</a></li>
-        <li><a href="blog.html" class="active">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="academics.html">Academics</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="highlights.html">Highlights</a></li>
+      <li><a href="blog.html"class="active">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="social-icons">
+      <a href="https://github.com/rupesh-cpu" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/rupeshpatare" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <!-- YouTube removed -->
+    </div>
   </header>
+
 
   <!-- Blog Section -->
   <section class="blog-section">
@@ -50,10 +58,6 @@
     </div>
   </div>
 </footer>
-
-<!-- Blog Background Animation -->
-
-
 </body>
 </html>
 
@@ -87,6 +91,13 @@
         console.error("Error fetching posts:", err);
         document.getElementById('blog-container').innerHTML = "<p>Failed to load posts.</p>";
       });
+   <!-- Mobile Menu Toggle -->   
   </script>
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+  </script>
+
 </body>
 </html>
