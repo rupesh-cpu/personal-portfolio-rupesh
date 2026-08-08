@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Academics | Rupesh Patare</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/academics.css">
@@ -16,8 +17,9 @@
   <!-- Header -->
   <header class="navbar">
     <div class="logo">Rupesh<span>Portfolio</span></div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
     <nav>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navLinks">
         <li><a href="../index.html">Home</a></li>
         <li><a href="academics.html" class="active">Academics</a></li>
         <li><a href="skills.html">Skills</a></li>
@@ -82,26 +84,34 @@
   </section>
 
   <script src="../js/charts.js"></script>
+
+  <!-- Mobile nav toggle -->
+  <script>
+    function toggleMenu() {
+      var nav = document.getElementById("navLinks");
+      if (nav) nav.classList.toggle("active");
+    }
+  </script>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2026 Rupesh Ramnath Patare — All Rights Reserved</p>
+      <div class="footer-links">
+        <a href="../index.html">Home</a> |
+        <a href="academics.html">Academics</a> |
+        <a href="skills.html">Skills</a> |
+        <a href="blog.html">Blog</a> |
+        <a href="highlights.html">Highlights</a> |
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="social-icons">
+        <a href="https://github.com/rupesh-cpu" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/rupeshpatare" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://youtube.com/@yourchannel" target="_blank"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="footer-content">
-    <p>© 2026 Rupesh Ramnath Patare — All Rights Reserved</p>
-    <div class="footer-links">
-      <a href="../index.html">Home</a> |
-      <a href="academics.html">Academics</a> |
-      <a href="skills.html">Skills</a> |
-      <a href="blog.html">Blog</a> |
-      <a href="highlights.html">Highlights</a> |
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="social-icons">
-      <a href="https://github.com/rupesh-cpu" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/in/rupeshpatare" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://youtube.com/@yourchannel" target="_blank"><i class="fab fa-youtube"></i></a>
-    </div>
-  </div>
-</footer>
-
