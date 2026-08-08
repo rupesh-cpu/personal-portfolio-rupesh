@@ -1,8 +1,8 @@
 [
   {
-    "title": "hello i am rupesh",
-    "content": "this is my first blog to check the functionalyty of my portfolio website",
+    "title": "My First Blog Post",
+    "content": "Hello, I am Rupesh Patare.\r\n\r\nThis is my first blog post, created to test the functionality of my blog posting system through `/pages/admin.html`.\r\n\r\nThis post is mainly for checking whether the blog creation, publishing, and display features are working correctly.\r\n",
     "date": "8/8/2026",
-    "image": "/uploads/1786174189707.png"
+    "image": "/uploads/1786211850771.JPG"
   }
 ]
