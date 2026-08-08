@@ -1,66 +1,114 @@
-/* Admin Section */
+/* Admin Panel Section */
 .admin-section {
-  max-width: 600px;
+  max-width: 700px;
   margin: 60px auto;
-  padding: 30px;
-  background: rgba(255,255,255,0.85);
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  backdrop-filter: blur(10px);
+  padding: 25px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.admin-section h1 {
+.admin-section h1, 
+.admin-section h2 {
   text-align: center;
   color: #f9c74f;
   margin-bottom: 20px;
 }
 
-/* Form Styling */
+/* Forms */
+#loginForm, 
 #blogForm {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-#blogForm input,
+#loginForm input, 
+#blogForm input, 
 #blogForm textarea {
   padding: 12px;
+  font-size: 16px;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 15px;
-  transition: border-color 0.3s ease;
+  border-radius: 6px;
 }
 
-#blogForm input:focus,
-#blogForm textarea:focus {
-  border-color: #f9c74f;
-  outline: none;
+#blogForm textarea {
+  min-height: 120px;
+  resize: vertical;
 }
 
+#loginForm button, 
 #blogForm button {
-  background: #f9c74f;
-  color: #1f1c2c;
   padding: 12px;
-  border: none;
-  border-radius: 30px;
+  font-size: 16px;
   font-weight: bold;
+  background: #f9c74f;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background 0.2s ease;
 }
 
+#loginForm button:hover, 
 #blogForm button:hover {
-  background: #ff9800;
+  background: #f9844a;
   color: #fff;
-  transform: translateY(-3px);
+}
+
+/* Existing Posts Preview */
+#adminPosts {
+  margin-top: 30px;
+}
+
+#adminPosts h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #1f1c2c;
+}
+
+#adminPosts .blog-post {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+#adminPosts .blog-post img {
+  max-width: 100%;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+#adminPosts .blog-post h3 {
+  margin: 5px 0;
+  color: #333;
+}
+
+#adminPosts .blog-post .date {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+#adminPosts .blog-post p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #444;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .admin-section {
-    padding: 20px;
+    padding: 15px;
   }
-  #blogForm input,
+  #loginForm input, 
+  #blogForm input, 
   #blogForm textarea {
+    font-size: 14px;
+  }
+  #loginForm button, 
+  #blogForm button {
     font-size: 14px;
   }
 }
