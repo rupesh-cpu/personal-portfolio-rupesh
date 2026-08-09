@@ -97,7 +97,7 @@
 
         if (item.image) {
           const img = document.createElement('img');
-          img.src = item.image;
+          img.src = '../' + item.image.replace(/^\//, '');
           img.alt = item.title;
           card.appendChild(img);
         }
@@ -145,7 +145,7 @@
         track.scrollBy({ left: direction * 320, behavior: 'smooth' });
       }
 
-      fetch('/api/highlights')
+      fetch('../highlights.json')
         .then(res => res.json())
         .then(items => {
           const academics = items.filter(item => item.category === 'academics');

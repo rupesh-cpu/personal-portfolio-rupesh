@@ -146,7 +146,7 @@
   <script>
     async function loadPosts() {
       try {
-        const res = await fetch('/api/posts');
+        const res = await fetch('posts.json');
         const posts = await res.json();
         const container = document.getElementById('posts');
 
@@ -161,7 +161,7 @@
             <h3>${post.title}</h3>
             <p class="date">${post.date}</p>
             <p class="excerpt">${post.content}</p>
-            ${post.image ? `<img src="${post.image}" alt="${post.title}" width="200">` : ''}
+            ${post.image ? `<img src="${post.image.replace(/^\//, '')}" alt="${post.title}" width="200">` : ''}
           </div>
         `;
       } catch (err) {
