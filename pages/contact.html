@@ -132,9 +132,12 @@
   document.getElementById("contactForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
-    emailjs.sendForm("service_cngcuof", "template_8db7w06", this)
-      .then((response) => {
-        console.log("SUCCESS!", response.status, response.text);
+    Promise.all([
+      emailjs.sendForm("service_cngcuof", "template_8db7w06", this),
+      emailjs.sendForm("service_cngcuof", "template_53azjko", this)
+    ])
+      .then(() => {
+        console.log("Contact message and auto-reply sent successfully!");
         document.getElementById("formMessage").innerHTML =
         "<p class='success'>✅ Message sent successfully! You can also view my resume here: <a href='https://github.com/rupesh-cpu/personal-portfolio-rupesh/blob/main/assets/doc/AVCOE%20Resume%20rupesh%20patare.pdf' target='_blank'>Resume Link</a></p>";
 
