@@ -93,6 +93,7 @@
         <form class="contact-form" id="contactForm">
           <input type="text" name="user_name" placeholder="Your Name" required>
           <input type="email" name="user_email" placeholder="Your Email" required>
+          <input type="hidden" name="to_email">
           <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
           <button type="submit">Send Message</button>
         </form>
@@ -131,6 +132,7 @@
 
   document.getElementById("contactForm").addEventListener("submit", function(event) {
     event.preventDefault();
+    this.elements.to_email.value = this.elements.user_email.value;
 
     Promise.all([
       emailjs.sendForm("service_cngcuof", "template_8db7w06", this),
