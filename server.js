@@ -16,7 +16,12 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 app.use(bodyParser.json());
-app.use(express.static(__dirname));
+// Serve only browser-facing directories. Never expose the project root, which
+// contains private files such as .env, server.js, and the JSON data stores.
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
+app.use('/css', express.static(path.join(__dirname, 'css')));
+app.use('/js', express.static(path.join(__dirname, 'js')));
+app.use('/pages', express.static(path.join(__dirname, 'pages')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Load posts
