@@ -1,105 +1,319 @@
-/* Intro */
-.intro {
-  max-width: 800px;
-  margin: 30px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  font-size: 18px;
-  text-align: center;
-}
-.intro a {
-  color: #4328bb;
-  font-weight: 600;
-  text-decoration: none;
-}
-.intro a:hover {
-  text-decoration: underline;
+/* Academics Page */
+.academics-page {
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 40px 24px 80px;
 }
 
-/* College Logo */
-.college-logo {
-  display: block;
-  margin: 0 auto 20px auto;
-  width: 120px;       /* adjust size */
-  height: auto;
-  border-radius: 8px; /* smooth corners */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  animation: fadeInZoom 1.5s ease;
+.academics-hero {
+ display: grid;
+ grid-template-columns: 1.4fr 0.9fr;
+ gap: 24px;
+ align-items: center;
+ background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(249,199,79,0.16));
+ padding: 32px;
+ border-radius: 24px;
+ box-shadow: 0 16px 40px rgba(31, 28, 44, 0.08);
+ margin-bottom: 24px;
 }
 
+.hero-copy h1 {
+ font-family: 'Poppins', sans-serif;
+ font-size: clamp(1.8rem, 3vw, 2.7rem);
+ margin-bottom: 16px;
+ color: #1f1c2c;
+}
+
+.hero-copy p {
+ color: #555;
+ line-height: 1.8;
+}
+
+.hero-copy a {
+ color: #4328bb;
+ font-weight: 600;
+ text-decoration: none;
+}
+
+.hero-copy a:hover {
+ text-decoration: underline;
+}
+
+.section-badge {
+ display: inline-block;
+ margin-bottom: 10px;
+ padding: 7px 12px;
+ border-radius: 999px;
+ background: #fff8e5;
+ color: #a06f00;
+ font-size: 0.8rem;
+ font-weight: 700;
+ letter-spacing: 0.16em;
+ text-transform: uppercase;
+}
+
+.hero-highlights {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 10px;
+ margin-top: 18px;
+}
+
+.hero-highlights span {
+ display: inline-flex;
+ align-items: center;
+ gap: 8px;
+ padding: 8px 12px;
+ background: #ffffff;
+ color: #1f1c2c;
+ border-radius: 999px;
+ border: 1px solid #f0e0b2;
+ font-size: 0.92rem;
+}
+
+ .hero-card {
+ background: #fff;
+ padding: 20px;
+ border-radius: 18px;
+ box-shadow: 0 8px 20px rgba(31, 28, 44, 0.06);
+ text-align: center;
+}
+
+ .logo-row {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 14px;
+ margin-bottom: 12px;
+ flex-wrap: wrap;
+ }
+
+ .hero-card p {
+ color: #555;
+ line-height: 1.7;
+ margin: 0;
+}
+
+ .college-logo,
+ .university-logo {
+ height: auto;
+ border-radius: 10px;
+ animation: fadeInZoom 1.2s ease;
+ }
+
+ .college-logo {
+ width: 96px;
+ }
+
+ .university-logo {
+ width: 72px;
+ }
 @keyframes fadeInZoom {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+ from { transform: scale(0.9); opacity: 0; }
+ to { transform: scale(1); opacity: 1; }
 }
 
-/* Chart Section */
+.stats-grid {
+ display: grid;
+ grid-template-columns: repeat(3, minmax(0, 1fr));
+ gap: 18px;
+ margin-bottom: 24px;
+}
+
+.stat-card {
+ background: #fff;
+ border-radius: 18px;
+ padding: 22px;
+ box-shadow: 0 10px 24px rgba(31, 28, 44, 0.06);
+}
+
+.stat-card i {
+ font-size: 1.3rem;
+ color: #f9c74f;
+ margin-bottom: 8px;
+}
+
+.stat-card h3 {
+ font-family: 'Poppins', sans-serif;
+ margin-bottom: 8px;
+ color: #203a43;
+}
+
+.stat-card p {
+ color: #555;
+ line-height: 1.7;
+}
+
+.education-timeline,
+.academic-performance {
+ background: #fff;
+ border-radius: 24px;
+ padding: 28px;
+ box-shadow: 0 12px 28px rgba(31, 28, 44, 0.06);
+ margin-bottom: 24px;
+}
+
+.section-heading {
+ margin-bottom: 20px;
+}
+
+.section-heading h2 {
+ font-family: 'Poppins', sans-serif;
+ color: #203a43;
+ margin: 0;
+}
+
+.timeline-list {
+ display: grid;
+ gap: 14px;
+}
+
+.timeline-card {
+ display: flex;
+ gap: 14px;
+ padding: 16px 18px;
+ border-radius: 16px;
+ background: #fcfcfc;
+ border: 1px solid #f0ebdf;
+}
+
+.timeline-dot {
+ width: 12px;
+ height: 12px;
+ border-radius: 50%;
+ background: #f9c74f;
+ box-shadow: 0 0 0 6px rgba(249, 199, 79, 0.16);
+ margin-top: 6px;
+ flex-shrink: 0;
+}
+
+.timeline-card h3 {
+ margin-bottom: 6px;
+ color: #1f1c2c;
+}
+
+.timeline-card p,
+.timeline-card span {
+ color: #666;
+ line-height: 1.6;
+}
+
+.marks-grid {
+ display: grid;
+ grid-template-columns: 1fr 1.1fr;
+ gap: 20px;
+ margin-top: 12px;
+}
+
+.secondary-grid {
+ grid-template-columns: repeat(2, minmax(0, 1fr));
+ margin-top: 18px;
+}
+
+.marks-card,
+.chart-card {
+ background: #fcfcfc;
+ border: 1px solid #f0ebdf;
+ border-radius: 18px;
+ padding: 20px;
+}
+
+.marks-card h3,
+.chart-card h3 {
+ font-family: 'Poppins', sans-serif;
+ margin-bottom: 14px;
+ color: #203a43;
+}
+
+.marks-card table {
+ width: 100%;
+ border-collapse: collapse;
+}
+
+.marks-card th,
+.marks-card td {
+ padding: 12px;
+ text-align: center;
+ border-bottom: 1px solid #ececec;
+}
+
+.marks-card th {
+ background: #f9c74f;
+ color: #1f1c2c;
+ font-weight: 600;
+}
+
+.marks-card tr:hover {
+ background: #fff9e8;
+ transition: background 0.3s;
+}
+
 .chart-section {
-  max-width: 600px;
-  height: 300px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-}
-
-/* Marks Table */
-.marks-table {
-  max-width: 700px;
-  margin: 40px auto;
-  background: #fff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-}
-.marks-table h2 {
-  margin-bottom: 15px;
-  font-family: 'Poppins', sans-serif;
-  color: #203a43;
-}
-.marks-table table {
-  width: 100%;
-  border-collapse: collapse;
-}
-.marks-table th, .marks-table td {
-  padding: 12px;
-  text-align: center;
-  border-bottom: 1px solid #ddd;
-}
-.marks-table th {
-  background: #f9c74f;
-  color: #1f1c2c;
-  font-weight: 600;
-}
-.marks-table tr:hover {
-  background: #fdf6e3;
-  transition: background 0.3s;
+ height: 280px;
+ padding: 6px 0;
 }
 
 /* Background Animation */
 .background-animation {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  overflow: hidden;
-  z-index: -1;
+ position: fixed;
+ top: 0; left: 0;
+ width: 100%; height: 100%;
+ overflow: hidden;
+ z-index: -1;
 }
 .background-animation span {
-  position: absolute;
-  width: 300px; height: 300px;
-  border-radius: 50%;
-  border: 2px solid rgba(249, 199, 79, 0.3);
-  animation: moveCurve 20s infinite linear;
+ position: absolute;
+ width: 300px; height: 300px;
+ border-radius: 50%;
+ border: 2px solid rgba(249, 199, 79, 0.3);
+ animation: moveCurve 20s infinite linear;
 }
 .background-animation span:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
 .background-animation span:nth-child(2) { top: 40%; left: 70%; animation-delay: 5s; }
 .background-animation span:nth-child(3) { top: 70%; left: 30%; animation-delay: 10s; }
 
 @keyframes moveCurve {
-  0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-50px) rotate(180deg); }
-  100% { transform: translateY(0) rotate(360deg); }
+ 0% { transform: translateY(0) rotate(0deg); }
+ 50% { transform: translateY(-50px) rotate(180deg); }
+ 100% { transform: translateY(0) rotate(360deg); }
+}
+
+@media (max-width: 900px) {
+ .academics-hero {
+   grid-template-columns: 1fr;
+ }
+ .stats-grid,
+ .marks-grid,
+ .secondary-grid {
+   grid-template-columns: 1fr;
+ }
+}
+
+@media (max-width: 768px) {
+ .academics-page {
+   padding: 20px 14px 56px;
+ }
+ .academics-hero,
+ .education-timeline,
+ .academic-performance {
+   padding: 16px;
+ }
+ .hero-copy h1 {
+   font-size: 1.5rem;
+ }
+ .hero-card {
+   padding: 16px;
+ }
+ .college-logo {
+   width: 80px;
+ }
+ .university-logo {
+   width: 60px;
+ }
+ .marks-card th,
+ .marks-card td {
+   padding: 10px 8px;
+   font-size: 0.92rem;
+ }
 }
 
