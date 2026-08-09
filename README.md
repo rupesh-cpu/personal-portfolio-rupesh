@@ -33,4 +33,4 @@ It showcases my academics, skills, projects, blog, and achievements in a clean a
 
 ✅ This version makes the **demo link stand out** with a clear call‑to‑action. It looks natural, developer‑authentic, and professional.  
 
-👉 Do you want me to also add a **Screenshots section** (with placeholders like `/screenshots/home.png`) so recruiters can visually preview your site right from the README?
+👉 https://rupesh-cpu.github.io/personal-portfolio-rupesh/index.html?utm_source=copilot.com
