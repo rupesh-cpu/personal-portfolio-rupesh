@@ -1,4 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-    <h1>page in progress</h1>
+  <head>
+    <meta charset="UTF-8">
+    <title>Highlights | Rupesh Patare</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/highlights.css">
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">Rupesh<span>Portfolio</span></div>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="highlights.html" class="active">Highlights</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="social-icons">
+        <a href="https://github.com/rupesh-cpu" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/rupeshpatare" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </header>
+
+    <main>
+      <section class="highlights-hero">
+        <span class="hero-badge">Highlights</span>
+        <h1>Showcasing the best of my academics, skills and activities.</h1>
+        <p>Explore a curated gallery of achievements, projects, teamwork and extracurricular moments that reflect how I learn, lead and build with purpose.</p>
+      </section>
+
+      <section class="gallery-section">
+        <div class="gallery-header">
+          <div>
+            <h2>Academics & Skills</h2>
+            <p>Track the projects, certifications, and abilities that demonstrate my technical growth and classroom achievements.</p>
+          </div>
+          <div class="gallery-actions">
+            <button aria-label="Scroll academics left" onclick="scrollGallery('academics', -1)">‹</button>
+            <button aria-label="Scroll academics right" onclick="scrollGallery('academics', 1)">›</button>
+          </div>
+        </div>
+        <div class="gallery-track" id="academicsGallery"></div>
+      </section>
+
+      <section class="gallery-section">
+        <div class="gallery-header">
+          <div>
+            <h2>Extra-curricular Activities</h2>
+            <p>Discover moments from events, volunteer work, competitions and personal growth outside the classroom.</p>
+          </div>
+          <div class="gallery-actions">
+            <button aria-label="Scroll activities left" onclick="scrollGallery('extracurricular', -1)">‹</button>
+            <button aria-label="Scroll activities right" onclick="scrollGallery('extracurricular', 1)">›</button>
+          </div>
+        </div>
+        <div class="gallery-track" id="extraGallery"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>© 2026 Rupesh Ramnath Patare — All Rights Reserved</p>
+        <div class="footer-links">
+          <a href="../index.html">Home</a> |
+          <a href="academics.html">Academics</a> |
+          <a href="skills.html">Skills</a> |
+          <a href="highlights.html">Highlights</a> |
+          <a href="blog.html">Blog</a> |
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="social-icons">
+          <a href="https://github.com/rupesh-cpu" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/rupeshpatare" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function toggleMenu() {
+        document.getElementById('navLinks').classList.toggle('active');
+      }
+
+      function createCard(item) {
+        const card = document.createElement('article');
+        card.className = 'gallery-card';
+
+        if (item.image) {
+          const img = document.createElement('img');
+          img.src = item.image;
+          img.alt = item.title;
+          card.appendChild(img);
+        }
+
+        const body = document.createElement('div');
+        body.className = 'gallery-card-body';
+
+        const title = document.createElement('h3');
+        title.textContent = item.title;
+        body.appendChild(title);
+
+        const description = document.createElement('p');
+        description.textContent = item.description;
+        body.appendChild(description);
+
+        const footer = document.createElement('div');
+        footer.className = 'gallery-card-footer';
+        const badge = document.createElement('span');
+        badge.className = 'gallery-badge';
+        badge.textContent = item.category === 'extracurricular' ? 'Extra Curricular' : 'Academics & Skills';
+        footer.appendChild(badge);
+
+        body.appendChild(footer);
+        card.appendChild(body);
+
+        return card;
+      }
+
+      function updateGallery(trackId, items, emptyText) {
+        const track = document.getElementById(trackId);
+        track.innerHTML = '';
+        if (!items || items.length === 0) {
+          const empty = document.createElement('div');
+          empty.className = 'gallery-empty';
+          empty.textContent = emptyText;
+          track.appendChild(empty);
+          return;
+        }
+        items.forEach(item => track.appendChild(createCard(item)));
+      }
+
+      function scrollGallery(section, direction) {
+        const trackId = section === 'extracurricular' ? 'extraGallery' : 'academicsGallery';
+        const track = document.getElementById(trackId);
+        track.scrollBy({ left: direction * 320, behavior: 'smooth' });
+      }
+
+      fetch('/api/highlights')
+        .then(res => res.json())
+        .then(items => {
+          const academics = items.filter(item => item.category === 'academics');
+          const extracurricular = items.filter(item => item.category === 'extracurricular');
+
+          updateGallery('academicsGallery', academics, 'No academics or skills highlights have been added yet.');
+          updateGallery('extraGallery', extracurricular, 'No extracurricular highlights have been added yet.');
+        })
+        .catch(err => {
+          console.error('Unable to load highlights:', err);
+          updateGallery('academicsGallery', [], 'Unable to load the gallery.');
+          updateGallery('extraGallery', [], 'Unable to load the gallery.');
+        });
+    </script>
+  </body>
 </html>

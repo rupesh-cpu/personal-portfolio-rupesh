@@ -34,70 +34,84 @@
 
   <!-- Blog Section -->
   <section class="blog-section">
-    <h1>My Blogs</h1>
+    <div class="blog-hero">
+      <p class="section-badge">Insights & Stories</p>
+      <h1>Thoughts, ideas, and experiments from my journey.</h1>
+      <p>Here I share updates on AI, data science, development, and the lessons I learn while building things that matter.</p>
+    </div>
     <div id="blog-container"></div>
   </section>
 
-    <!-- Footer -->
-<footer class="footer">
-  <div class="footer-content">
-    <p>© 2026 Rupesh Ramnath Patare — All Rights Reserved</p>
-    <div class="footer-links">
-      <a href="../index.html">Home</a> |
-      <a href="academics.html">Academics</a> |
-      <a href="skills.html">Skills</a> |
-      <a href="highlights.html">Highlights</a> |
-      <a href="blog.html">Blog</a> |
-      <a href="admin.html">Admin</a> |
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="social-icons">
-      <a href="https://github.com/rupesh-cpu" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/in/rupeshpatare" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://youtube.com/@yourchannel" target="_blank"><i class="fab fa-youtube"></i></a>
-    </div>
-  </div>
-</footer>
-</body>
-</html>
+ <footer class="footer">
+   <div class="footer-content">
+     <p>© 2026 Rupesh Ramnath Patare — All Rights Reserved</p>
+     <div class="footer-links">
+       <a href="../index.html">Home</a> |
+       <a href="academics.html">Academics</a> |
+       <a href="skills.html">Skills</a> |
+       <a href="highlights.html">Highlights</a> |
+       <a href="blog.html">Blog</a> |
+       <a href="admin.html">Admin</a> |
+       <a href="contact.html">Contact</a>
+     </div>
+     <div class="social-icons">
+       <a href="https://github.com/rupesh-cpu" target="_blank"><i class="fab fa-github"></i></a>
+       <a href="https://linkedin.com/in/rupeshpatare" target="_blank"><i class="fab fa-linkedin"></i></a>
+       <a href="https://youtube.com/@yourchannel" target="_blank"><i class="fab fa-youtube"></i></a>
+     </div>
+   </div>
+ </footer>
 
+ <script>
+   fetch('/api/posts')
+     .then(res => res.json())
+     .then(posts => {
+       const container = document.getElementById('blog-container');
 
-  <!-- Script -->
-  <script>
-    // Fetch posts from backend
-    fetch('/api/posts')
-      .then(res => res.json())
-      .then(posts => {
-        const container = document.getElementById('blog-container');
-        
-        if (!posts || posts.length === 0) {
-          container.innerHTML = "<p>No blog posts yet. Check back soon!</p>";
-          return;
-        }
+       if (!posts || posts.length === 0) {
+         container.innerHTML = '<div class="empty-state">No blog posts yet. Check back soon!</div>';
+         return;
+       }
 
-        posts.forEach(post => {
-          const div = document.createElement('div');
-          div.className = 'blog-post';
-          div.innerHTML = `
-            ${post.image ? `<img src="${post.image}" alt="Blog Image">` : ''}
-            <h2>${post.title}</h2>
-            <p class="date">${post.date}</p>
-            <p>${post.content}</p>
-          `;
-          container.appendChild(div);
-        });
-      })
-      .catch(err => {
-        console.error("Error fetching posts:", err);
-        document.getElementById('blog-container').innerHTML = "<p>Failed to load posts.</p>";
-      });
-   <!-- Mobile Menu Toggle -->   
-  </script>
-  <script>
-    function toggleMenu() {
-      document.getElementById("navLinks").classList.toggle("active");
-    }
-  </script>
+       posts.forEach(post => {
+         const div = document.createElement('article');
+         div.className = 'blog-post';
 
+         if (post.image) {
+           const img = document.createElement('img');
+           img.src = post.image;
+           img.alt = post.title;
+           div.appendChild(img);
+         }
+
+         const contentWrap = document.createElement('div');
+         contentWrap.className = 'blog-post-content';
+
+         const date = document.createElement('p');
+         date.className = 'date';
+         date.textContent = post.date;
+         contentWrap.appendChild(date);
+
+         const title = document.createElement('h2');
+         title.textContent = post.title;
+         contentWrap.appendChild(title);
+
+         const body = document.createElement('p');
+         body.innerHTML = (post.content || '').replace(/\n/g, '<br>');
+         contentWrap.appendChild(body);
+
+         div.appendChild(contentWrap);
+         container.appendChild(div);
+       });
+     })
+     .catch(err => {
+       console.error('Error fetching posts:', err);
+       document.getElementById('blog-container').innerHTML = '<div class="empty-state">Failed to load posts.</div>';
+     });
+
+   function toggleMenu() {
+     document.getElementById('navLinks').classList.toggle('active');
+   }
+ </script>
 </body>
 </html>

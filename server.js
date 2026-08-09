@@ -25,6 +25,14 @@ if (fs.existsSync('posts.json')) {
   posts = JSON.parse(fs.readFileSync('posts.json'));
 }
 
+// Load highlights
+let highlights = [];
+if (fs.existsSync('highlights.json')) {
+  highlights = JSON.parse(fs.readFileSync('highlights.json'));
+} else {
+  fs.writeFileSync('highlights.json', JSON.stringify(highlights, null, 2));
+}
+
 // Root route
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
@@ -33,6 +41,11 @@ app.get('/', (req, res) => {
 // Get posts
 app.get('/api/posts', (req, res) => {
   res.json(posts);
+});
+
+// Get highlights
+app.get('/api/highlights', (req, res) => {
+  res.json(highlights);
 });
 
 // Login
@@ -110,6 +123,70 @@ app.put('/api/edit-post/:index', upload.single('image'), (req, res) => {
     res.send('Post updated successfully!');
   } else {
     res.status(404).send('Post not found');
+  }
+});
+
+// Add highlight item
+app.post('/api/add-highlight', upload.single('image'), (req, res) => {
+  if (req.headers['x-admin-key'] !== process.env.SECRET_KEY) {
+    return res.status(403).send('Unauthorized');
+  }
+
+  const newHighlight = {
+    title: req.body.title,
+    description: req.body.description,
+    category: req.body.category || 'academics',
+    image: req.file ? '/uploads/' + req.file.filename : null,
+    date: new Date().toLocaleDateString(),
+  };
+
+  highlights.unshift(newHighlight);
+  fs.writeFileSync('highlights.json', JSON.stringify(highlights, null, 2));
+  res.send('Highlight item added successfully!');
+});
+
+// Delete highlight item
+app.delete('/api/delete-highlight/:index', (req, res) => {
+  if (req.headers['x-admin-key'] !== process.env.SECRET_KEY) {
+    return res.status(403).send('Unauthorized');
+  }
+
+  const index = parseInt(req.params.index);
+  if (index >= 0 && index < highlights.length) {
+    const item = highlights[index];
+    if (item.image) {
+      const filePath = path.join(__dirname, item.image);
+      fs.unlink(filePath, (err) => {
+        if (err) {
+          console.error('Failed to delete image:', err);
+        }
+      });
+    }
+    highlights.splice(index, 1);
+    fs.writeFileSync('highlights.json', JSON.stringify(highlights, null, 2));
+    res.send('Highlight item deleted successfully!');
+  } else {
+    res.status(404).send('Highlight not found');
+  }
+});
+
+// Edit highlight item
+app.put('/api/edit-highlight/:index', upload.single('image'), (req, res) => {
+  if (req.headers['x-admin-key'] !== process.env.SECRET_KEY) {
+    return res.status(403).send('Unauthorized');
+  }
+  const index = parseInt(req.params.index);
+  if (index >= 0 && index < highlights.length) {
+    highlights[index].title = req.body.title || highlights[index].title;
+    highlights[index].description = req.body.description || highlights[index].description;
+    highlights[index].category = req.body.category || highlights[index].category;
+    if (req.file) {
+      highlights[index].image = '/uploads/' + req.file.filename;
+    }
+    fs.writeFileSync('highlights.json', JSON.stringify(highlights, null, 2));
+    res.send('Highlight item updated successfully!');
+  } else {
+    res.status(404).send('Highlight not found');
   }
 });
 

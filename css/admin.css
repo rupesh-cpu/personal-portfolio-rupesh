@@ -25,7 +25,10 @@
 
 #loginForm input, 
 #blogForm input, 
-#blogForm textarea {
+#blogForm textarea,
+#highlightForm input,
+#highlightForm textarea,
+#highlightForm select {
   padding: 12px;
   font-size: 16px;
   border: 1px solid #ddd;
@@ -38,7 +41,8 @@
 }
 
 #loginForm button, 
-#blogForm button {
+#blogForm button,
+#highlightForm button {
   padding: 12px;
   font-size: 16px;
   font-weight: bold;
@@ -50,9 +54,33 @@
 }
 
 #loginForm button:hover, 
-#blogForm button:hover {
+#blogForm button:hover,
+#highlightForm button:hover {
   background: #f9844a;
   color: #fff;
+}
+
+#highlightFormContainer {
+  border-top: 1px solid #eee;
+  padding-top: 30px;
+}
+
+#adminHighlights {
+  margin-top: 30px;
+}
+
+#adminHighlights h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #1f1c2c;
+}
+
+#adminHighlights .blog-post {
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background: #fafafa;
 }
 
 /* Existing Posts Preview */
