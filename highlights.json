@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "title": "Python",
+    "description": "Python Certificate",
+    "category": "academics",
+    "image": "/uploads/1786247556162.png",
+    "date": "9/8/2026"
+  },
+  {
+    "title": "Data Science ",
+    "description": "Certificate in Data Science",
+    "category": "academics",
+    "image": "/uploads/1786247436276.png",
+    "date": "9/8/2026"
+  }
+]
