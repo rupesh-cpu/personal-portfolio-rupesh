@@ -1,40 +1,30 @@
 # Personal Portfolio - Rupesh
 
-🚧 **Status: In Progress** 🚧
+This is my personal portfolio website.  
+It showcases my academics, skills, projects, blog, and achievements in a clean and interactive way.
 
-This repository contains the source code for my personal portfolio website.  
-The site is being developed to showcase my **academics, skills, projects, and achievements** in a clean and interactive way.
+---
 
-## Features (Planned)
-- Responsive design with modern UI
-- Academics section with year-wise CGPA graph
+## Features
+- Responsive design
+- Academics section with CGPA graph
 - Skills section with progress bars and certifications
-- Projects showcase with detailed descriptions
-- Blog and contact pages
-- Animated background and smooth transitions
-
-## Current Progress
-- Basic structure created
-- Header and footer implemented
-- Academics page under development
-- Placeholder content added
-
-## Next Steps
-- Add dynamic animations
-- Integrate logos for colleges and schools
-- Build skills page with interactive progress bars
-- Finalize blog and contact sections
+- Projects showcase
+- Blog page with private admin panel (add posts with photos)
+- Contact page with glassmorphism effect
+- Animated background
 
 ---
 
-### 🔗 Live Demo
-Coming soon...
+## Tech Stack
+- Frontend: HTML, CSS, JavaScript
+- Backend: Node.js, Express
+- Storage: JSON for posts, Multer for image uploads
+- Security: Environment variables for hidden credentials
 
 ---
 
-### 📬 Contact
-- Email: rupeshpatareg09@gmail.com  
-- LinkedIn: [linkedin.com/in/rupeshpatare](https://linkedin.com/in/rupeshpatare)  
-- GitHub: [github.com/rupesh-cpu](https://github.com/rupesh-cpu)
-
----
+## How to Run Locally
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/rupesh-cpu/personal-portfolio-rupesh.git
