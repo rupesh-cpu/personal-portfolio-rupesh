@@ -43,6 +43,11 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// Search-engine crawl instructions are public, while the project root remains private.
+app.get('/robots.txt', (req, res) => {
+  res.type('text/plain').sendFile(path.join(__dirname, 'robots.txt'));
+});
+
 // Get posts
 app.get('/api/posts', (req, res) => {
   res.json(posts);
